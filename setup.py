@@ -17,16 +17,14 @@ history = open('CHANGES.rst').read()
 
 
 tests_require = [
-    'check-manifest>=0.25',
-    'coverage>=4.5.3',
-    'Flask-Menu>=0.5.0',
-    'invenio-admin>=1.0.0',
-    'isort>=4.3.0',
-    'mock>=1.3.0',
-    'pydocstyle>=3.0.0',
-    'pytest-cov>=2.7.1',
-    'pytest-pep8>=1.0.6',
+    'coverage>=4.5.3,<5.0.0',
+    'mock>=3.0.0,<4.0.0',
     'pytest>=4.6.4,<5.0.0',
+    'pytest-cache',
+    'pytest-cov',
+    'pytest-pep8',
+    'pytest-invenio',
+    'responses',
 ]
 
 extras_require = {
@@ -59,12 +57,11 @@ for name, reqs in extras_require.items():
 
 setup_requires = [
     'Babel>=1.3',
-    'pytest-runner>=2.6.2',
+    'pytest-runner>=3.0.0,<5',
 ]
 
 install_requires = [
     'blinker>=1.4',
-    'flask-celeryext>=0.2.2',
     'flask>=0.11.1',
     'jsonpatch>=1.15',
     'jsonresolver>=0.1.0',
@@ -104,9 +101,6 @@ setup(
         ],
         'invenio_base.api_apps': [
             'invenio_records = invenio_records:InvenioRecords',
-        ],
-        'invenio_celery.tasks': [
-            'invenio_records = invenio_records.tasks.api',
         ],
         'invenio_db.alembic': [
             'invenio_records = invenio_records:alembic',
